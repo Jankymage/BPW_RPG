@@ -20,7 +20,7 @@ public class Quest1 : MonoBehaviour {
 	//als quest nog niet geacepteerd is screen poppen
 
 	//TODO:
-	//zorgen dat quest popup iets doet
+	//checken of de quest nog niet actief is.
 
 
 	// Use this for initialization
