@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestFetch : MonoBehaviour {
 
@@ -8,15 +9,22 @@ public class QuestFetch : MonoBehaviour {
 		//instantiate tracker
 	//als object opgepakt > update tracker
 	//als alles gepakt > quest complete	
+	
+	//TODO:
+	//quest inleveren.
+	//tracker > fixen dat hij goed update
 
 	//voor het tellen van de objecten.
 	private int count;
 	public int countMax = 10;
+	public Text questText;
+	public GameObject canvas; //voor plaatsing questText
 
 	// Use this for initialization
 	void Start () {
 		count  = 0;
 		Debug.Log("quest actief");
+		Instantiate(questText, canvas.transform);
 	}
 	
 	// Update is called once per frame
@@ -33,6 +41,10 @@ public class QuestFetch : MonoBehaviour {
 		if(other.CompareTag("Collectable")){
 			count += 1;
 			other.gameObject.SetActive(false);
+			
+			//weergeven van huidige aantal collectables collected
+			questText.text = "Count: " + count.ToString() + " / " + countMax.ToString();
+			Debug.Log(count);
 		}
 
 		if(count >= countMax){
