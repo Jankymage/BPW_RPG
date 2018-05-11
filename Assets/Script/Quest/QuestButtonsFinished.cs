@@ -34,11 +34,15 @@ public class QuestButtonsFinished : MonoBehaviour {
         //om te zorgen dat de quest opnieuw gedaan kan worden.
         //QuestFetch.count = 0;
 
-        Debug.Log(QuestFetch.count);
+        //Debug.Log(QuestFetch.count);
 
         //vermoord de quest complete text
 		questTextParent = GameObject.Find("QuestText(Clone)");
 		Destroy(questTextParent);
+
+        //reset de quest.
+        character.GetComponent<QuestFetch>().questTextUpdateBool = true;
+
 
         //zet de quest uit.
         character.GetComponent<QuestFetch>().enabled = false;

@@ -21,10 +21,11 @@ public class QuestFetch : MonoBehaviour {
 	public Text questComplete; //public voor andere scripts
 	public GameObject canvas; //voor plaatsing questText
 
-	public bool questReset = false;
-
 	//om de parent van de questTextUpdate te vermoorden
 	private GameObject questTextParent;
+
+	//voor herspeelbare quest
+	public bool questTextUpdateBool = true;
 
 	// Use this for initialization
 	void Start () {
@@ -35,14 +36,19 @@ public class QuestFetch : MonoBehaviour {
 		questTextUpdate = Instantiate(questText, canvas.transform);
 		SetCountText();
 
-		Debug.Log("quest start");
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		
+		//zorgt dat questTextUpdate bestaat als de quest gereset is.
+		if(questTextUpdateBool){
+			questTextUpdate = Instantiate(questText, canvas.transform);
+			count = 0;
+			SetCountText();
+			questTextUpdateBool = false;
+		}
+		Debug.Log(count);
 
 		//als de quest is afgerond
 		if(count >= countMax && !questComplete){
@@ -55,11 +61,6 @@ public class QuestFetch : MonoBehaviour {
 			questComplete = Instantiate(questText, canvas.transform);
 			questComplete.text = "Quest Complete!";
 
-			// if(questReset){
-			// 	count = 0;
-			// }
-
-			// questReset = false;
 		}
 
 		
