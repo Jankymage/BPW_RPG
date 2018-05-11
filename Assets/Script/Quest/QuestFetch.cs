@@ -15,22 +15,24 @@ public class QuestFetch : MonoBehaviour {
 	//tracker > fixen dat hij goed update
 
 	//voor het tellen van de objecten.
-	private int count;
+	private int count = 0;
 	public int countMax = 10;
 	public Text questText;
+	private Text questTextUpdate;
 	public GameObject canvas; //voor plaatsing questText
 
 	// Use this for initialization
 	void Start () {
 		count  = 0;
 		Debug.Log("quest actief");
-		Instantiate(questText, canvas.transform);
+		questTextUpdate = Instantiate(questText, canvas.transform);
+		SetCountText();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//voor weergeven huidige status telling
-		 SetCountText();
+		 
 	}
 
 	private void OnTriggerEnter(Collider other){
@@ -43,6 +45,7 @@ public class QuestFetch : MonoBehaviour {
 			count += 1;
 			other.gameObject.SetActive(false);
 			
+			SetCountText();
 			
 			Debug.Log(count);
 		}
@@ -53,9 +56,9 @@ public class QuestFetch : MonoBehaviour {
 		
 	}
 
+	//update de quest text
 	private void SetCountText(){
-		//questText.text = count.ToString();
-		questText.text = "Count: " + count.ToString() + " / " + countMax.ToString();
+		questTextUpdate.text = "Count: " + count.ToString() + " / " + countMax.ToString();
 	}
 
 }
