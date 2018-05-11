@@ -65,10 +65,6 @@ public class Quest1 : MonoBehaviour {
 			Instantiate(questFinished, canvas.transform);
 		}
 
-		// if(distance <= maxDistance && !questView && !questActive){
-		// 	Instantiate(quest, canvas.transform);
-		// }
-
 	}
 
 	

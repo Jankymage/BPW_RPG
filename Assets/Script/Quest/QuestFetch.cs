@@ -14,12 +14,17 @@ public class QuestFetch : MonoBehaviour {
 	//quest inleveren.
 
 	//voor het tellen van de objecten.
-	private int count = 0;
+	public int count = 0;
 	public int countMax = 10;
 	public Text questText;
 	private Text questTextUpdate;
-	public Text questComplete; //public voor Quest1 script
+	public Text questComplete; //public voor andere scripts
 	public GameObject canvas; //voor plaatsing questText
+
+	public bool questReset = false;
+
+	//om de parent van de questTextUpdate te vermoorden
+	private GameObject questTextParent;
 
 	// Use this for initialization
 	void Start () {
@@ -29,21 +34,35 @@ public class QuestFetch : MonoBehaviour {
 		//maakt een text aan om de status van de quest bij te houden en zet deze op 0
 		questTextUpdate = Instantiate(questText, canvas.transform);
 		SetCountText();
+
+		Debug.Log("quest start");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		
+
 		//als de quest is afgerond
 		if(count >= countMax && !questComplete){
 
 			//vermoord de quest update text
-			Destroy(questTextUpdate);
+			questTextParent = GameObject.Find("QuestText(Clone)");
+			Destroy(questTextParent);
 
 			//maak een nieuwe text aan (bestaan van deze text werkt ook als bool)
 			questComplete = Instantiate(questText, canvas.transform);
 			questComplete.text = "Quest Complete!";
+
+			// if(questReset){
+			// 	count = 0;
+			// }
+
+			// questReset = false;
 		}
+
+		
 		 
 	}
 

@@ -310,11 +310,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106301a0d76f3f445a8c2cb751799d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   countMax: 1
   questText: {fileID: 114944584580543212, guid: 01bcad9a9a871cc4da40c596e31ac700,
     type: 2}
   questComplete: {fileID: 0}
   canvas: {fileID: 485151805}
+  questReset: 0
 --- !u!1001 &422263606
 Prefab:
   m_ObjectHideFlags: 0

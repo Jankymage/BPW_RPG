@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Accept: {fileID: 114208903122050526}
+  QuestFetch: {fileID: 0}
 --- !u!222 &222060690051456276
 CanvasRenderer:
   m_ObjectHideFlags: 1

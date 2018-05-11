@@ -11,6 +11,12 @@ public class QuestButtonsFinished : MonoBehaviour {
     //voor het aanzetten op quest script op character
     private GameObject character;
 
+    //om de parent van de quest complete text te vermoorden
+    private GameObject questTextParent;
+
+    //om cript van de quest uit te lezen (voor resetten quest).
+	public QuestFetch QuestFetch;
+
     void Start()
     {
         Button accept = m_Accept.GetComponent<Button>();
@@ -24,7 +30,15 @@ public class QuestButtonsFinished : MonoBehaviour {
     void TaskAccept()
     {
         //Output this to console when the Button is clicked
-        Debug.Log("ACCEPTED!");
+
+        //om te zorgen dat de quest opnieuw gedaan kan worden.
+        //QuestFetch.count = 0;
+
+        Debug.Log(QuestFetch.count);
+
+        //vermoord de quest complete text
+		questTextParent = GameObject.Find("QuestText(Clone)");
+		Destroy(questTextParent);
 
         //zet de quest uit.
         character.GetComponent<QuestFetch>().enabled = false;
