@@ -27,7 +27,6 @@ public class QuestButtons : MonoBehaviour {
     void TaskAccept()
     {
         //Output this to console when the Button is clicked
-        Debug.Log("ACCEPTED!");
 
         //zet de quest aan.
         character.GetComponent<QuestFetch>().enabled = true;
@@ -38,7 +37,6 @@ public class QuestButtons : MonoBehaviour {
     void TaskCancel()
     {
         //Output this to console when the Button is clicked
-        Debug.Log("cancel");
 		Destroy(gameObject);
 	}
 }

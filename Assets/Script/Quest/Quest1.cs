@@ -61,7 +61,6 @@ public class Quest1 : MonoBehaviour {
 
 		//Als de quest voldaan is, zal er een popup komen om de quest in te leveren.
 		if(distance <= maxDistance && questComplete){
-			Debug.Log("ingeleverd!");
 			Instantiate(questFinished, canvas.transform);
 		}
 

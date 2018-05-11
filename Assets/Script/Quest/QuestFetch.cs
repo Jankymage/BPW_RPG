@@ -25,7 +25,7 @@ public class QuestFetch : MonoBehaviour {
 	private GameObject questTextParent;
 
 	//voor herspeelbare quest
-	public bool questTextUpdateBool = true;
+	public bool questTextUpdateBool = false;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +48,6 @@ public class QuestFetch : MonoBehaviour {
 			SetCountText();
 			questTextUpdateBool = false;
 		}
-		Debug.Log(count);
 
 		//als de quest is afgerond
 		if(count >= countMax && !questComplete){
