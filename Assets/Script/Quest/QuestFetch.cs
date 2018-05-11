@@ -18,7 +18,7 @@ public class QuestFetch : MonoBehaviour {
 	public int countMax = 10;
 	public Text questText;
 	private Text questTextUpdate;
-	private Text questComplete;
+	public Text questComplete; //public voor Quest1 script
 	public GameObject canvas; //voor plaatsing questText
 
 	// Use this for initialization

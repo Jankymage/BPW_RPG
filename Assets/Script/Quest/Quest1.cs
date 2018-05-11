@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class Quest1 : MonoBehaviour {
 
 	public Image quest;
+	public Image questFinished;
 	public GameObject canvas; //voor plaatsing quest popup 
+	//om cript van de quest uit te lezen (voor completion).
+	public QuestFetch QuestFetch;
 	
 	//voor berekenen afstand tussen speler en NPC
 	public Transform player;
@@ -16,6 +19,7 @@ public class Quest1 : MonoBehaviour {
 	private bool questView = false;
 	private GameObject character;
 	private bool questActive = false;
+	private bool questComplete = false;
 
 
 	//checken of er LMB op OBJECT gebruikt wordt
@@ -51,6 +55,19 @@ public class Quest1 : MonoBehaviour {
 		if(distance <= maxDistance && !questView && !questActive){
 			Instantiate(quest, canvas.transform);
 		}
+
+	//kijkt of het questComlete text bestaat in het QuestFetch script (op de player)
+		questComplete = QuestFetch.questComplete;
+
+		//Als de quest voldaan is, zal er een popup komen om de quest in te leveren.
+		if(distance <= maxDistance && questComplete){
+			Debug.Log("ingeleverd!");
+			Instantiate(questFinished, canvas.transform);
+		}
+
+		// if(distance <= maxDistance && !questView && !questActive){
+		// 	Instantiate(quest, canvas.transform);
+		// }
 
 	}
 

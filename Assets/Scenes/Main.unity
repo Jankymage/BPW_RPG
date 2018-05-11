@@ -283,12 +283,7 @@ MonoBehaviour:
   character: {fileID: 376229636}
   viewPoint: {fileID: 1648086783}
   mouseSpeed: 93.72
-  dashMax: 1
-  dashDistance: 0
   gravMulti: 1.9
-  jumpParticles: {fileID: 0}
-  jumpSound: {fileID: 0}
-  blinkSound: {fileID: 0}
 --- !u!54 &376229638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -315,9 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106301a0d76f3f445a8c2cb751799d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countMax: 10
+  countMax: 1
   questText: {fileID: 114944584580543212, guid: 01bcad9a9a871cc4da40c596e31ac700,
     type: 2}
+  questComplete: {fileID: 0}
   canvas: {fileID: 485151805}
 --- !u!1001 &422263606
 Prefab:
@@ -1190,8 +1186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest: {fileID: 114998942459549996, guid: 6ee8f5ddc1355044a8ddb1a56c41392f, type: 2}
+  questFinished: {fileID: 114633837775210150, guid: 49a81c7b69223c54188ccb39983db906,
+    type: 2}
   canvas: {fileID: 485151805}
+  QuestFetch: {fileID: 376229639}
   player: {fileID: 376229636}
+  maxDistance: 5
 --- !u!1001 &1784929163
 Prefab:
   m_ObjectHideFlags: 0
