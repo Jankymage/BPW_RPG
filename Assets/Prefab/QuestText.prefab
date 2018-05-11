@@ -60,7 +60,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Count: 10 / 10'
+  m_Text: QuestText
 --- !u!222 &222098386729550260
 CanvasRenderer:
   m_ObjectHideFlags: 1
