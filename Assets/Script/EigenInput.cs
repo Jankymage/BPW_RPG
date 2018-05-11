@@ -13,15 +13,9 @@ public class EigenInput : MonoBehaviour
     public int jumpMax = 2;
     public Transform playerCam, character, viewPoint;
     public float mouseSpeed = 10f;
-    public int dashMax = 1;
-    [Range(5f, 20f)]
-    public float dashDistance;
     [Range(0f, 20f)]
     public float gravMulti;
-    public GameObject jumpParticles;
-    public GameObject jumpSound;
-    public GameObject blinkSound;
-
+    
     //variables voor het bewegen en springen
     private Rigidbody rb;
     private float moveSpeedForward = 0;
@@ -40,16 +34,21 @@ public class EigenInput : MonoBehaviour
     private float zoomMax = -10f;
     private float camYOffset = 1;
 
-    //variables voor het dashen
-    private int dashTimes = 0;
-    private bool dashPossible;
-    private bool dashBool;
+    
 
-    //TODO
-    //scrappen voor nieuwe project:
-    //dash? (ander script als skill?)
-    //doublejump? (ander script als skill?)
-    //particles?
+    //voor als uitgecommente functionaliteit later wel gebruikt word.
+    // public GameObject jumpParticles;
+    // public GameObject jumpSound;
+    // public GameObject blinkSound;
+
+    //variables voor het dashen
+    // private int dashTimes = 0;
+    // private bool dashPossible;
+    // private bool dashBool;
+
+    // public int dashMax = 1;
+    // [Range(5f, 20f)]
+    // public float dashDistance;
 
    
 
@@ -91,17 +90,21 @@ public class EigenInput : MonoBehaviour
         {
             jumpBool = true;
             jumpTimes += 1;
-            Instantiate(jumpParticles, character);
-            Instantiate(jumpSound, character);
+
+            //word nu niet gebruikt (effects)
+            // Instantiate(jumpParticles, character);
+            // Instantiate(jumpSound, character);
         }
         
-        //als shift ingedrukt word en de voorwaardes goed zijn word er een dash boolean aangezet
-        if (Input.GetButtonDown("Fire3") && dashPossible && dashTimes <= dashMax -1)
-        {
-            dashBool = true;
-            dashTimes += 1;
-            Instantiate(blinkSound, character);
-        }
+        //word nu niet gebruikt (dash)
+        // //als shift ingedrukt word en de voorwaardes goed zijn word er een dash boolean aangezet
+        // if (Input.GetButtonDown("Fire3") && dashPossible && dashTimes <= dashMax -1)
+        // {
+        //     dashBool = true;
+        //     dashTimes += 1;
+
+        //     Instantiate(blinkSound, character);
+        // }
 
     }
 
@@ -113,13 +116,17 @@ public class EigenInput : MonoBehaviour
         if (Grounded())
         {
             jumpTimes = 0;
-            dashPossible = false;
-            dashTimes = 0;
+            
+            //word nu niet gebruikt (dash)
+            //dashPossible = false;
+            //dashTimes = 0;
         }
-        else
-        {
-            dashPossible = true;
-        }
+        
+        //word nu niet gebruikt (dash)
+        // else
+        // {
+        //     dashPossible = true;
+        // }
 
         //zorgt dat de character vooruit en achteruit beweegt
         if (Input.GetKey(KeyCode.W))
@@ -149,14 +156,15 @@ public class EigenInput : MonoBehaviour
             moveSpeedSide = 0;
         }
         
+        //word nu niet gebruikt
         //laat de character dashen
-        if (dashBool)
-        {
-            rb.MovePosition((character.forward * dashDistance) + rb.position);
+        // if (dashBool)
+        // {
+        //     rb.MovePosition((character.forward * dashDistance) + rb.position);
 
-            dashBool = false;
-            return;
-        }
+        //     dashBool = false;
+        //     return;
+        // }
 
         //draait de character aan de hand van de camera
         character.rotation = Quaternion.Euler(0, viewPoint.eulerAngles.y, 0);

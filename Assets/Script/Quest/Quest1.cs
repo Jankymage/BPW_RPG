@@ -10,6 +10,7 @@ public class Quest1 : MonoBehaviour {
 	
 	//voor berekenen afstand tussen speler en NPC
 	public Transform player;
+	public float maxDistance = 5f;
 	private float distance;
 	//voor kijken of er al een quest te zien of actief is.
 	private bool questView = false;
@@ -21,8 +22,6 @@ public class Quest1 : MonoBehaviour {
 	//afstand berekenen > zodat niet vanaf overal geklikt kan worden
 	//als quest nog niet geacepteerd is screen poppen
 
-	//TODO:
-	//checken of de quest nog niet actief is.
 
 
 	// Use this for initialization
@@ -49,7 +48,7 @@ public class Quest1 : MonoBehaviour {
 
 		//als de afstand tussen NPC en speler kleiner is dan 5f en er niet al 
 		//een quest te zien of actief is word er een questobject opgeroepen.
-		if(distance <= 5f && !questView && !questActive){
+		if(distance <= maxDistance && !questView && !questActive){
 			Instantiate(quest, canvas.transform);
 		}
 

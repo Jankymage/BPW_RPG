@@ -29,7 +29,8 @@ public class QuestFetch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//voor weergeven huidige status telling
+		 SetCountText();
 	}
 
 	private void OnTriggerEnter(Collider other){
@@ -42,8 +43,7 @@ public class QuestFetch : MonoBehaviour {
 			count += 1;
 			other.gameObject.SetActive(false);
 			
-			//weergeven van huidige aantal collectables collected
-			questText.text = "Count: " + count.ToString() + " / " + countMax.ToString();
+			
 			Debug.Log(count);
 		}
 
@@ -52,4 +52,10 @@ public class QuestFetch : MonoBehaviour {
 		}
 		
 	}
+
+	private void SetCountText(){
+		//questText.text = count.ToString();
+		questText.text = "Count: " + count.ToString() + " / " + countMax.ToString();
+	}
+
 }
