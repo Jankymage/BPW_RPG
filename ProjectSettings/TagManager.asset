@@ -6,6 +6,7 @@ TagManager:
   tags:
   - QuestPopUp
   - Collectable
+  - Target
   layers:
   - Default
   - TransparentFX
