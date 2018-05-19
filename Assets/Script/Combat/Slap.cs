@@ -65,6 +65,11 @@ public class Slap : MonoBehaviour {
 						//zorgt er voor dat de damage aan de healt van de target word gedaan
 						Targeting.targetNew.GetComponent<Stats>().health -= damage;
 
+						//zorgen dat de target nonactief word als target dood gaat.
+						if(Targeting.targetNew.GetComponent<Stats>().health <= 0){
+							Targeting.targeted = false;
+						}
+
 					}
 
 			//else statements voor player errors, plaatst de text en zet de timer aan van de text
