@@ -23,8 +23,6 @@ public class TargetFrame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log(Targeting.targeted);
-
 		//zet het frame actief als er een target is en vult de gegevens van naam en health in.
 		if(Targeting.targeted){
 			targetFrame.SetActive(true);
