@@ -62,8 +62,6 @@ public class Targeting : MonoBehaviour {
 				if (hitInfo.collider.gameObject.tag == "Target")
 				{
 
-				Debug.Log(hitInfo.collider.gameObject);
-
 				targetNew = hitInfo.collider.gameObject;
 
 					//als er een nieuwe target is
