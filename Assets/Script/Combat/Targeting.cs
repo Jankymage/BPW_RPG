@@ -11,14 +11,14 @@ public class Targeting : MonoBehaviour {
 
 	//om oude targets goed te verwerken
 	private GameObject targetOld;
-	private GameObject targetNew;
+	public GameObject targetNew; //public voor andere scripts (skills)
 
 	//afstand voor selectie bijhouden
 	private float distance;
 	public float maxDistance = 15;
 
 	//om afstand van huidige target bij te houden.
-	private bool targeted = false;
+	public bool targeted = false; //public voor andere scripts (skills)
 	private float targetedDistance;
 	public float targetedDistanceMax = 25;
 

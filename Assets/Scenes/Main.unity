@@ -351,7 +351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetIndicate: {fileID: 2129850583}
+  targetNew: {fileID: 0}
   maxDistance: 15
+  targeted: 0
   targetedDistanceMax: 25
 --- !u!114 &376229641
 MonoBehaviour:
@@ -365,7 +367,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 2
+  maxDistance: 3
   cooldownText: {fileID: 1203801818}
+  damage: 50
+  Targeting: {fileID: 376229640}
+  Stats: {fileID: 0}
 --- !u!1001 &422263606
 Prefab:
   m_ObjectHideFlags: 0
