@@ -20,11 +20,16 @@ public class Slap : MonoBehaviour {
 	//voor het weergeven van de cooldown
 	public Text cooldownText;
 
+	//voor het weergeven van errors
+	public Text errorText;
+	public PlayerError PlayerError;
+
 	//voor het gebruiken van de skill op de target
 	public Targeting Targeting;
 
 	//voor het aanpassen van de stats op target
 	public Stats Stats;
+
 
 	// Use this for initialization
 	void Start () {
@@ -44,22 +49,42 @@ public class Slap : MonoBehaviour {
 		//geeft de cooldowntijd weer in seconden
 		cooldownText.text = "Slap Cooldown: " + (Mathf.CeilToInt(cooldownCurrent)).ToString();
 
-		if(Input.GetKeyDown(KeyCode.Alpha1) && cooldownCurrent <= 0){
-			
-			//kijkt of er een target is
-			if(Targeting.targeted){
+		if(Input.GetKeyDown(KeyCode.Alpha1)){
 
-				//kijkt of target dichtbij genoeg is.
-				if(Vector3.Distance(Targeting.targetNew.transform.position, transform.position) <= maxDistance){
+			if(cooldownCurrent <= 0){
 				
-					//zorgt er voor dat de cooldown gaat lopen
-					cooldownCurrent = cooldown;
+				//kijkt of er een target is
+				if(Targeting.targeted){
 
-					//zorgt er voor dat de damage aan de healt van de target word gedaan
-					Targeting.targetNew.GetComponent<Stats>().health -= damage;
+					//kijkt of target dichtbij genoeg is.
+					if(Vector3.Distance(Targeting.targetNew.transform.position, transform.position) <= maxDistance){
+					
+						//zorgt er voor dat de cooldown gaat lopen
+						cooldownCurrent = cooldown;
 
+						//zorgt er voor dat de damage aan de healt van de target word gedaan
+						Targeting.targetNew.GetComponent<Stats>().health -= damage;
+
+					}
+
+			//else statements voor player errors, plaatst de text en zet de timer aan van de text
+					else{
+					errorText.text = "Target Too Far Away";
+					PlayerError.change = true;
+					}
+					
 				}
-				
+
+				else{
+				errorText.text = "No Target";
+				PlayerError.change = true;
+				}
+
+			}
+
+			else{
+				errorText.text = "On Cooldown";
+				PlayerError.change = true;
 			}
 			
 		}
