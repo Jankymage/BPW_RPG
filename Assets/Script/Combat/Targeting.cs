@@ -24,7 +24,7 @@ public class Targeting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Instantiate(targetIndicate);
+		//TargetReset();
 	}
 	
 	// Update is called once per frame

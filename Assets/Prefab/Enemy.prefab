@@ -111,8 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf383e4df5566e7429554db409ccfef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  aggroRange: 15
+  slapRange: 3
+  maxCooldown: 1
+  damage: 10
   respawnLocation: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  IdleLocationX: 0
+  IdleLocationZ: 0
 --- !u!136 &136616820875882674
 CapsuleCollider:
   m_ObjectHideFlags: 1

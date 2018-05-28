@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Stats : MonoBehaviour {
+public class PlayerStats : MonoBehaviour {
 
 	//script voor op targets met stats
 
@@ -11,6 +12,8 @@ public class Stats : MonoBehaviour {
 
 	//voor het resetten van de health
 	public int startHealth = 100;
+
+	public Text healthText;
 
 
 	// Use this for initialization
@@ -25,6 +28,8 @@ public class Stats : MonoBehaviour {
 		if(health <= 0){
 			gameObject.SetActive(false);
 		}
+
+	healthText.text = "Health: " + health.ToString();
 
 	}
 }

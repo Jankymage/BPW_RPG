@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 376229639}
   - component: {fileID: 376229640}
   - component: {fileID: 376229641}
+  - component: {fileID: 376229642}
+  - component: {fileID: 376229643}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -401,9 +403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetIndicate: {fileID: 2129850583}
   targetNew: {fileID: 0}
-  maxDistance: 15
+  maxDistance: 30
   targeted: 0
-  targetedDistanceMax: 25
+  targetedDistanceMax: 40
 --- !u!114 &376229641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bf6747d9377bd41b86236ceb910730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 2
+  cooldown: 1
   maxDistance: 3
   damage: 50
   cooldownText: {fileID: 1203801818}
@@ -423,6 +425,36 @@ MonoBehaviour:
   PlayerError: {fileID: 896685916}
   Targeting: {fileID: 376229640}
   Stats: {fileID: 0}
+--- !u!114 &376229642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376229632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3cae0c2b5a27b48b74f43d2406ab0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  startHealth: 100
+  healthText: {fileID: 1989028942}
+--- !u!114 &376229643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376229632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db109cbcdd84ce34288720df0b14d40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownMax: 5
+  healAmount: 50
+  cooldownText: {fileID: 1457841651}
+  errorText: {fileID: 896685914}
+  PlayerError: {fileID: 896685916}
 --- !u!1 &470759756
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +572,8 @@ RectTransform:
   - {fileID: 1203801817}
   - {fileID: 896685913}
   - {fileID: 1211132062}
+  - {fileID: 1989028941}
+  - {fileID: 1457841650}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1146,6 +1180,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211132061}
+--- !u!1 &1457841649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1457841650}
+  - component: {fileID: 1457841652}
+  - component: {fileID: 1457841651}
+  m_Layer: 5
+  m_Name: HealCooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1457841650
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1457841649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 485151809}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 16, y: 48.2}
+  m_SizeDelta: {x: 174.86, y: 30}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1457841651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1457841649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7029789, g: 0.7169812, b: 0.1251335, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Heal Cooldown
+--- !u!222 &1457841652
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1457841649}
 --- !u!1 &1628742172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3eb1aba3b94be4f9f67d6ed567c6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  amount: 3
   enemy: {fileID: 1605430990960978, guid: 505c595308923144e8483ecc2334292f, type: 2}
   locationX: 15
   locationZ: 15
@@ -1288,7 +1396,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665950484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.2, y: 1, z: -17.2}
+  m_LocalPosition: {x: -21.6, y: 1, z: 30.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1577,6 +1685,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989028940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1989028941}
+  - component: {fileID: 1989028943}
+  - component: {fileID: 1989028942}
+  m_Layer: 5
+  m_Name: PlayerHealtn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1989028941
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989028940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 485151809}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -23}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1989028942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989028940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7029789, g: 0.7169812, b: 0.1251335, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Player Health
+--- !u!222 &1989028943
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989028940}
 --- !u!1 &2129850583 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1745161942388582, guid: 8f0a014374b57af4eb7a71de86ec88ac,
