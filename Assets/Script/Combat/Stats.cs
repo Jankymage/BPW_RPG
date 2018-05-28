@@ -6,7 +6,11 @@ public class Stats : MonoBehaviour {
 
 	//script voor op targets met stats
 
+	//voor het bijhouden van health
 	public int health = 100;
+
+	//voor het resetten van de health
+	public int startHealth = 100;
 
 
 	// Use this for initialization

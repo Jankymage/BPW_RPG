@@ -38,13 +38,11 @@ public class Targeting : MonoBehaviour {
 
 			//als de afstand te groot is word alle target informat gereset en de targetIndicate gedeactiveerd.
 			if(targetedDistance > targetedDistanceMax){
-				targetNew = null;
-				targetOld = null;
-				targetIndicate.transform.parent = null;
-				targetIndicate.SetActive(false);
-				targeted = false;
+				TargetReset();
 
 			}
+
+			
 
 		}
 
@@ -93,5 +91,14 @@ public class Targeting : MonoBehaviour {
 			}
 
 		}
+	}
+
+	//voor het resetten van target
+	void TargetReset(){
+		targetIndicate.transform.parent = null;
+		targetNew = null;
+		targetOld = null;
+		targetIndicate.SetActive(false);
+		targeted = false;
 	}
 }
