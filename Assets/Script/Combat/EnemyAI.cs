@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour {
     public State currentState;
 	public float aggroRange = 15f;
 	public float slapRange = 3f;
+    public float leashRange = 40f;
     
     //voor aanval
     public float maxCooldown = 1;
@@ -90,8 +91,8 @@ public class EnemyAI : MonoBehaviour {
                 //set destination naar speler
                 agent.SetDestination(player.transform.position);
 
-                //als speler buiten move range gaat naar idle
-                if(Vector3.Distance(transform.position, player.transform.position) > aggroRange){
+                //als speler buiten leash range gaat naar idle
+                if(Vector3.Distance(transform.position, player.transform.position) > leashRange){
                     currentState = State.Idle;
                 }
 
@@ -117,8 +118,6 @@ public class EnemyAI : MonoBehaviour {
                 else{
                     cooldown -= Time.deltaTime;
                 }
-
-                
 
                 //als uit range naar move to
                 if(Vector3.Distance(transform.position, player.transform.position) > slapRange){
