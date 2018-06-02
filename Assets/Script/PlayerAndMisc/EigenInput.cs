@@ -62,29 +62,7 @@ public class EigenInput : MonoBehaviour
     void Update()
     {
 
-        //Voor het zoomen van de muis (met clamp)
-        zoom += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-        zoom = Mathf.Clamp(zoom, zoomMax, zoomMin);
-        playerCam.transform.localPosition = new Vector3(0, 0, zoom);
-
-        //beweegt de muis als de rechtermuisknop is ingedrukt en verbergt dat de muis
-        if (Input.GetMouseButton(1))
-        {
-            mouseX += Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-            mouseY -= Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
-            Cursor.visible = false;
-        }
-        else { Cursor.visible = true; }
-
-        //Clampt de muis op boven en onderst as
-        mouseY = Mathf.Clamp(mouseY, -60f, 60f);
-        //zorgt dat de camera naar de centerpoint blijft kijken
-        playerCam.LookAt(viewPoint);
-        //draait de camera afhankelijk van de muis stand
-        viewPoint.localRotation = (Quaternion.Euler(mouseY, mouseX, 0));
-        //zet de positie van de viewpoint afhankelijk van de positie van de character
-        viewPoint.position = new Vector3(character.position.x, character.position.y + camYOffset, character.position.z);
-
+        
         //springt als op spatie gedrukt is en er nog spring "charges" over zijn.
         if (Input.GetButtonDown("Jump") && jumpTimes <= (jumpMax - 2))
         {
@@ -111,6 +89,29 @@ public class EigenInput : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Voor het zoomen van de muis (met clamp)
+        zoom += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        zoom = Mathf.Clamp(zoom, zoomMax, zoomMin);
+        playerCam.transform.localPosition = new Vector3(0, 0, zoom);
+
+        //beweegt de muis als de rechtermuisknop is ingedrukt en verbergt dat de muis
+        if (Input.GetMouseButton(1))
+        {
+            mouseX += Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
+            mouseY -= Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
+            Cursor.visible = false;
+        }
+        else { Cursor.visible = true; }
+
+        //Clampt de muis op boven en onderst as
+        mouseY = Mathf.Clamp(mouseY, -60f, 60f);
+        //zorgt dat de camera naar de centerpoint blijft kijken
+        playerCam.LookAt(viewPoint);
+        //draait de camera afhankelijk van de muis stand
+        viewPoint.localRotation = (Quaternion.Euler(mouseY, mouseX, 0));
+        //zet de positie van de viewpoint afhankelijk van de positie van de character
+        viewPoint.position = new Vector3(character.position.x, character.position.y + camYOffset, character.position.z);
+
 
         //Checkt of de character grond onder zich heeft en reset de couters voor de dash en jump
         if (Grounded())

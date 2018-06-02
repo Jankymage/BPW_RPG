@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 376229641}
   - component: {fileID: 376229642}
   - component: {fileID: 376229643}
+  - component: {fileID: 376229644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -455,6 +456,17 @@ MonoBehaviour:
   cooldownText: {fileID: 1457841651}
   errorText: {fileID: 896685914}
   PlayerError: {fileID: 896685916}
+--- !u!114 &376229644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376229632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12f13334cc4f754eb93659b5c393a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470759756
 GameObject:
   m_ObjectHideFlags: 0
