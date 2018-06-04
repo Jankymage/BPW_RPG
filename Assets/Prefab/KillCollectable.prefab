@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135688714122766918}
   m_Layer: 0
   m_Name: KillCollectable
-  m_TagString: Collectable
+  m_TagString: KillCollectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7c630725994a8214fb209827625bedf4, type: 2}
+  - {fileID: 2100000, guid: cc78c6944ee981d46819af0cbfc032ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
