@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222098386729550260}
   - component: {fileID: 114944584580543212}
   m_Layer: 5
-  m_Name: QuestText
+  m_Name: QuestFetchText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

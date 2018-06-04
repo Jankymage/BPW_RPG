@@ -39,9 +39,9 @@ GameObject:
   - component: {fileID: 224095612744146488}
   - component: {fileID: 222060690051456276}
   - component: {fileID: 114633837775210150}
-  - component: {fileID: 114912707065000820}
+  - component: {fileID: 114489030088195384}
   m_Layer: 5
-  m_Name: Quest Complete
+  m_Name: QuestKillComplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +188,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Quest completed
+--- !u!114 &114489030088195384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481967712653712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb28f1173c8be0f4b9925373a996e80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Accept: {fileID: 114208903122050526}
+  QuestKill: {fileID: 0}
 --- !u!114 &114588825553021568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,19 +255,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114912707065000820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1481967712653712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0019fef5a80d5a469eced8925182c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Accept: {fileID: 114208903122050526}
-  QuestFetch: {fileID: 0}
 --- !u!222 &222060690051456276
 CanvasRenderer:
   m_ObjectHideFlags: 1

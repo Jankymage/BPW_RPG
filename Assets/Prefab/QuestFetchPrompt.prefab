@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114998942459549996}
   - component: {fileID: 114236773159256622}
   m_Layer: 5
-  m_Name: Quest Placeholder
+  m_Name: QuestFetchPrompt
   m_TagString: QuestPopUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Accept: {fileID: 114461126431607748}
   m_Cancel: {fileID: 114943481364115430}
-  character: {fileID: 0}
 --- !u!114 &114273845572631898
 MonoBehaviour:
   m_ObjectHideFlags: 1

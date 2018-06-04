@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestFetch : MonoBehaviour {
+public class QuestKill : MonoBehaviour {
 
 	//als quest accepted: deze quest actief maken
 		//instantiate tracker
@@ -53,7 +53,7 @@ public class QuestFetch : MonoBehaviour {
 		if(count >= countMax && !questComplete){
 
 			//vermoord de quest update text
-			questTextParent = GameObject.Find("QuestText(Clone)");
+			questTextParent = GameObject.Find("QuestKillText(Clone)");
 			Destroy(questTextParent);
 
 			//maak een nieuwe text aan (bestaan van deze text werkt ook als bool)
@@ -73,7 +73,7 @@ public class QuestFetch : MonoBehaviour {
 
 		//als er een collectable gepakt word en de quest nog niet afgerond is,
 		//gaat de count omhoog
-		if(other.CompareTag("Collectable") && !questComplete){
+		if(other.CompareTag("KillCollectable") && !questComplete){
 			count += 1;
 			other.gameObject.SetActive(false);
 			

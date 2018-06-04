@@ -32,7 +32,7 @@ public class QuestButtonsFinished : MonoBehaviour {
         //Output this to console when the Button is clicked
 
         //vermoord de quest complete text
-		questTextParent = GameObject.Find("QuestText(Clone)");
+		questTextParent = GameObject.Find("QuestFetchText(Clone)");
 		Destroy(questTextParent);
 
         //reset de quest.

@@ -12,6 +12,8 @@ public class EnemySpawn : MonoBehaviour {
 	public float locationX = 15;
 	public float locationZ = 15;
 
+	public GameObject KillCollectable;
+
 	//voor het respawnen
 	List <float> timers;
 	public float respawnTimer = 5f;
@@ -45,6 +47,7 @@ public class EnemySpawn : MonoBehaviour {
 			if(!objects[i].activeSelf){
 				if(timers[i] <= 0){
 					timers[i] = respawnTimer;
+					Instantiate(KillCollectable, objects[i].transform.position, objects[i].transform.rotation);
 				}
 				if(timers[i] > 0){
 					timers[i] -= Time.deltaTime;
