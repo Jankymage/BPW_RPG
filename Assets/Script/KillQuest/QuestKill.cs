@@ -75,7 +75,7 @@ public class QuestKill : MonoBehaviour {
 		//gaat de count omhoog
 		if(other.CompareTag("KillCollectable") && !questComplete){
 			count += 1;
-			other.gameObject.SetActive(false);
+			Destroy(other.gameObject);
 			
 			SetCountText();
 		}
