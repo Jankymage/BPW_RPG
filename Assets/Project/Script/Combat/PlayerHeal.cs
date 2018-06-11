@@ -15,6 +15,8 @@ public class PlayerHeal : MonoBehaviour {
 	public Text errorText;
 	public PlayerError PlayerError;
 
+	public Animation anim;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -32,10 +34,10 @@ public class PlayerHeal : MonoBehaviour {
 		cooldownText.text = "Heal Cooldown: " + (Mathf.CeilToInt(cooldown)).ToString();
 
 		//als de knop ingedrukt word.
-		if(Input.GetKeyDown(KeyCode.Alpha2)){
+		if(Input.GetKeyDown(KeyCode.Q)){
 				
-		//checked of player niet max health is.
-		if(gameObject.GetComponent<PlayerStats>().health < gameObject.GetComponent<PlayerStats>().startHealth){
+		//checked of player niet max health is en er niet een attack word gedaan.
+		if(gameObject.GetComponent<PlayerStats>().health < gameObject.GetComponent<PlayerStats>().startHealth  && !anim.IsPlaying("attack")){
 			
 				if(cooldown <= 0){
 				
@@ -43,6 +45,9 @@ public class PlayerHeal : MonoBehaviour {
 					gameObject.GetComponent<PlayerStats>().health += healAmount;
 					//zorgt er voor dat de cooldown gaat lopen
 					cooldown = cooldownMax;
+					//speelt de animatie
+					anim.Play("skill");
+					
 				}
 				
 				else{

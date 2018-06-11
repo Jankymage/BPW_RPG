@@ -29,6 +29,9 @@ public class Slap : MonoBehaviour {
 
 	//voor het aanpassen van de stats op target
 	public Stats Stats;
+	
+	//voor de animatie
+	public Animation anim;
 
 
 	// Use this for initialization
@@ -49,21 +52,24 @@ public class Slap : MonoBehaviour {
 		//geeft de cooldowntijd weer in seconden
 		cooldownText.text = "Slap Cooldown: " + (Mathf.CeilToInt(cooldownCurrent)).ToString();
 
-		if(Input.GetKeyDown(KeyCode.Alpha1)){
+		if(Input.GetKeyDown(KeyCode.Space)){
 
 			if(cooldownCurrent <= 0){
 				
 				//kijkt of er een target is
 				if(Targeting.targeted){
 
-					//kijkt of target dichtbij genoeg is.
-					if(Vector3.Distance(Targeting.targetNew.transform.position, transform.position) <= maxDistance){
+					//kijkt of target dichtbij genoeg is en er niet een skill word gebruikt
+					if(Vector3.Distance(Targeting.targetNew.transform.position, transform.position) <= maxDistance && !anim.IsPlaying("skill")){
 					
 						//zorgt er voor dat de cooldown gaat lopen
 						cooldownCurrent = cooldown;
 
 						//zorgt er voor dat de damage aan de healt van de target word gedaan
 						Targeting.targetNew.GetComponent<Stats>().health -= damage;
+						
+						//speelt de animatie
+						anim.Play("attack");
 
 						//zorgen dat de target nonactief word als target dood gaat.
 						if(Targeting.targetNew.GetComponent<Stats>().health <= 0){

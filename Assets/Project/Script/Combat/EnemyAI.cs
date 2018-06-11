@@ -14,6 +14,9 @@ public class EnemyAI : MonoBehaviour {
 	public float aggroRange = 15f;
 	public float slapRange = 3f;
     public float leashRange = 40f;
+
+    //voor animatie
+    public Animation anim;
     
     //voor aanval
     public float maxCooldown = 1;
@@ -83,6 +86,9 @@ public class EnemyAI : MonoBehaviour {
                 if(Vector3.Distance(transform.position, player.transform.position) < aggroRange){
                     currentState = State.Move;
                 }
+
+                //animatie
+                anim.Play("Idle");
                 
                 break;
 
@@ -101,6 +107,9 @@ public class EnemyAI : MonoBehaviour {
                     currentState = State.Attack;
                 }
 
+                //animatie
+                anim.Play("Run");
+
                 break;
 
             case State.Attack:
@@ -113,10 +122,16 @@ public class EnemyAI : MonoBehaviour {
 
                     //zorgt er voor dat de damage aan de healt van de target word gedaan
                     player.GetComponent<PlayerStats>().health -= damage;
+
+                    //animatie
+                    anim.Play("Attack");
                 }
 
                 else{
                     cooldown -= Time.deltaTime;
+                    //animatie
+                    if(!anim.isPlaying)
+                    anim.Play("Idle");
                 }
 
                 //als uit range naar move to
