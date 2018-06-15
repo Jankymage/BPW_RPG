@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//script voor het bewegen van de speler
+
 public class EigenInput : MonoBehaviour
 {
 
     //Alle public variables
     [Range(0.1f,0.5f)]
     public float moveMulti;
-    //public float jumpSpeed = 6;
-    //public int jumpMax = 2;
     public Transform playerCam, character, viewPoint;
     public float mouseSpeed = 10f;
-    //[Range(0f, 20f)]
-    //public float gravMulti;
 
     //voor animatie en geluid
     public Animation anim;
     public AudioSource stepSound;
     
-    //variables voor het bewegen en springen
+    //variables voor het bewegen
     private Rigidbody rb;
     private float moveSpeedForward = 0;
     private float moveSpeedSide = 0;
     private CapsuleCollider coll;
-    //private int jumpTimes = 0;
     private Vector3 movement;
-    //private bool jumpBool; 
 
     //variables voor de camera
     private float mouseY;
@@ -38,37 +34,15 @@ public class EigenInput : MonoBehaviour
     private float zoomMax = -10f;
     private float camYOffset = 1;
 
-    //Voor animatie
-    
-
-    //voor als uitgecommente functionaliteit later wel gebruikt word.
-    // public GameObject jumpParticles;
-    // public GameObject jumpSound;
-    // public GameObject blinkSound;
-
-    //variables voor het dashen
-    // private int dashTimes = 0;
-    // private bool dashPossible;
-    // private bool dashBool;
-
-    // public int dashMax = 1;
-    // [Range(5f, 20f)]
-    // public float dashDistance;
-
-   
-
     void Start()
     {
         //voor het aanspreken van de speler en de collider voor de grounded raycast
         rb = GetComponent<Rigidbody>();
-        //commented vanwege jump
-        //coll = GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
 
-        
         //zorgt dat het stappen geluid speelt als de character beweegt.
         if(moveSpeedForward != 0 | moveSpeedSide != 0){
             if(!stepSound.isPlaying){
@@ -80,26 +54,6 @@ public class EigenInput : MonoBehaviour
         if (moveSpeedForward == 0f && moveSpeedSide == 0f){
             stepSound.Stop();
         }
-        //springt als op spatie gedrukt is en er nog spring "charges" over zijn.
-        // if (Input.GetButtonDown("Jump") && jumpTimes <= (jumpMax - 2))
-        // {
-        //     jumpBool = true;
-        //     jumpTimes += 1;
-
-        //     //word nu niet gebruikt (effects)
-        //     // Instantiate(jumpParticles, character);
-        //     // Instantiate(jumpSound, character);
-        // }
-        
-        //word nu niet gebruikt (dash)
-        // //als shift ingedrukt word en de voorwaardes goed zijn word er een dash boolean aangezet
-        // if (Input.GetButtonDown("Fire3") && dashPossible && dashTimes <= dashMax -1)
-        // {
-        //     dashBool = true;
-        //     dashTimes += 1;
-
-        //     Instantiate(blinkSound, character);
-        // }
 
     }
 
@@ -129,35 +83,14 @@ public class EigenInput : MonoBehaviour
         //zet de positie van de viewpoint afhankelijk van de positie van de character
         viewPoint.position = new Vector3(character.position.x, character.position.y + camYOffset, character.position.z);
 
-
-        // //Checkt of de character grond onder zich heeft en reset de couters voor de dash en jump
-        // if (Grounded())
-        // {
-        //     jumpTimes = 0;
-            
-        //     //word nu niet gebruikt (dash)
-        //     //dashPossible = false;
-        //     //dashTimes = 0;
-        // }
-        
-        //word nu niet gebruikt (dash)
-        // else
-        // {
-        //     dashPossible = true;
-        // }
-
-        //zorgt dat de character vooruit en achteruit beweegt en speelt de loop animatie af
+        //zorgt dat de character vooruit beweegt en speelt de loop animatie af
         //character kan alleen bewegen als er geen skill 
         if (Input.GetKey(KeyCode.W) && !anim.IsPlaying("skill") && !anim.IsPlaying("attack"))
         {
             moveSpeedForward = moveMulti;
             anim.Play("walk");
         }
-        //achteruit weg omte kijken hoe dat werkt
-        // else if (Input.GetKey(KeyCode.S))
-        // {
-        //     moveSpeedForward = -moveMulti;
-        // }
+
         else
         {
             moveSpeedForward = 0;
@@ -184,16 +117,6 @@ public class EigenInput : MonoBehaviour
             anim.Play("free");
         }
 
-        //word nu niet gebruikt
-        //laat de character dashen
-        // if (dashBool)
-        // {
-        //     rb.MovePosition((character.forward * dashDistance) + rb.position);
-
-        //     dashBool = false;
-        //     return;
-        // }
-
         //draait de character aan de hand van de camera
         character.rotation = Quaternion.Euler(0, viewPoint.eulerAngles.y, 0);
 
@@ -201,28 +124,6 @@ public class EigenInput : MonoBehaviour
         movement = (character.forward * moveSpeedForward) + (character.right * moveSpeedSide);
         rb.MovePosition(movement + rb.position);
 
-        //laat de character springen.
-        // if (jumpBool)
-        // {
-        //     rb.velocity = Vector3.up * jumpSpeed;
-        //     jumpBool = false;
-        //     return;
-        // }
-
-        //zorgt dat de character sneller valt (voor betere spring ervaring)
-        // if (rb.velocity.y < 0)
-        // {
-        //     rb.velocity += Vector3.up * Physics.gravity.y * (gravMulti - 1) * Time.deltaTime;
-        // }
-
-
-
     }
-
-    //Method that will look below character and see if there is a collider
-    // bool Grounded()
-    // {
-    //     return Physics.Raycast(transform.position, Vector3.down, coll.bounds.extents.y + 0.1f);
-    // }
 
 }

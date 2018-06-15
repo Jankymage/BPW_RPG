@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script voor de fetch quest NPC
+//checked de staat van de quest en spawned aan de hand daarvan een quest window om de quest te starten of af te sluiten
+
 public class Quest1 : MonoBehaviour {
 
+	//de quest popups
 	public Image quest;
 	public Image questFinished;
-	public GameObject canvas; //voor plaatsing quest popup 
-	//om cript van de quest uit te lezen (voor completion).
+
+	//voor plaatsing quest popup
+	public GameObject canvas; 
+	
+	//om script van de quest uit te lezen (voor completion).
 	public QuestFetch QuestFetch;
 	
 	//voor berekenen afstand tussen speler en NPC
 	public Transform player;
 	public float maxDistance = 5f;
 	private float distance;
+
 	//voor kijken of er al een quest te zien of actief is.
 	private bool questView = false;
 	private GameObject character;
@@ -22,18 +30,11 @@ public class Quest1 : MonoBehaviour {
 	private bool questComplete = false;
 
 
-	//checken of er LMB op OBJECT gebruikt wordt
-	//afstand berekenen > zodat niet vanaf overal geklikt kan worden
-	//als quest nog niet geacepteerd is screen poppen
-
-
-
 	// Use this for initialization
 	void Start () {
 		character = GameObject.FindWithTag("Player");
 	}
 	
-
 	//als de linker muisklik word gedaan op de NPC van dit script.
 	void OnMouseDown(){
 		
@@ -56,7 +57,7 @@ public class Quest1 : MonoBehaviour {
 			Instantiate(quest, canvas.transform);
 		}
 
-	//kijkt of het questComlete text bestaat in het QuestFetch script (op de player)
+		//kijkt of het questComlete text bestaat in het QuestFetch script (op de player)
 		questComplete = QuestFetch.questComplete;
 
 		//Als de quest voldaan is, zal er een popup komen om de quest in te leveren.

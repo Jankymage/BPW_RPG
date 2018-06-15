@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour {
+//script voor het bijhouden van de health stat van enemies
 
-	//script voor op targets met stats
+public class Stats : MonoBehaviour {
 
 	//voor het bijhouden van health
 	public int health;
@@ -32,6 +32,7 @@ public class Stats : MonoBehaviour {
 		if(health <= 0){
 			gameObject.SetActive(false);
 
+			//speelt geluid af als enemy dood gaat
 			deathSound.Play();
 		}
 

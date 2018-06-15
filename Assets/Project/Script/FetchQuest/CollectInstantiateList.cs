@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectInstantiateList : MonoBehaviour {
-
 //script voor het instantiaten van plekken rondom NPC
 // en respawnen van de collectables als deze opgepakt zijn.
+
+public class CollectInstantiateList : MonoBehaviour {
 
 	//voor het aanmaken van de lijst en het vullen met de collectables
 	public int amount;
@@ -21,18 +21,16 @@ public class CollectInstantiateList : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		timers = new List<float>();
-		for(int i = 0; i < amount; i++){
-			timers.Add(0f);
-		}
-
 		//maakt de lijst en vult deze met collactables op random location rondom de NPC.
+		//Maakt en vult ook de timerlijst
 		objects = new List<GameObject>();
+		timers = new List<float>();
 		for(int i = 0; i < amount; i++){
 			Vector3 location = transform.position;
 			location.x += Random.Range(-locationX, locationX);
 			location.z += Random.Range(-locationZ, locationZ);
 			objects.Add( Instantiate(collectable, location, transform.rotation) );
+			timers.Add(0f);
 		}
 	}
 	

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//script voor de quest acceptatie popup, voor grootste gedeelte gecopieerd van unity documentatie
+
 public class QuestKillButtons : MonoBehaviour {
 
-	//Make sure to attach these Buttons in the Inspector
+	//button variables
     public Button m_Accept, m_Cancel;
 
     //voor het aanzetten op quest script op character
@@ -13,30 +15,26 @@ public class QuestKillButtons : MonoBehaviour {
 
     void Start()
     {
+        //voor het initalizeren van de buttons
         Button accept = m_Accept.GetComponent<Button>();
         Button cancel = m_Cancel.GetComponent<Button>();
-        //Calls the TaskAccept method when you click the accept Button
         accept.onClick.AddListener(TaskAccept);
-
-		//Calls the TaskCancel method when you click the cencel Button
         cancel.onClick.AddListener(TaskCancel);
 
+        //om het quest script op de speler aan te zetten.
         character = GameObject.FindWithTag("Player");
     }
 
+    //functie voor het accepteren van de quest
     void TaskAccept()
     {
-        //Output this to console when the Button is clicked
-
-        //zet de quest aan.
         character.GetComponent<QuestKill>().enabled = true;
-
         Destroy(gameObject);
     }
 
+    //functie voor het alleen verwijderen van de window, zonder acceptatie
     void TaskCancel()
     {
-        //Output this to console when the Button is clicked
 		Destroy(gameObject);
 	}
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Slap : MonoBehaviour {
+//script voor basic combat move
 
-	//script voor basic combat move
+public class Slap : MonoBehaviour {
 
 	//voor het berekenen van de cooldown
 	public float cooldown = 2;
@@ -43,8 +43,6 @@ public class Slap : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//Debug.Log(Targeting.targetNew.transform.position);
-
 		//als de cooldown niet klaar is, word de cooldown gereset
 		if(cooldownCurrent > 0){
 			cooldownCurrent -= Time.deltaTime;
@@ -53,8 +51,10 @@ public class Slap : MonoBehaviour {
 		//geeft de cooldowntijd weer in seconden
 		cooldownText.text = "Slap Cooldown: " + (Mathf.CeilToInt(cooldownCurrent)).ToString();
 
+		//checked voor de spatiebalk
 		if(Input.GetKeyDown(KeyCode.Space)){
 
+			//checked of de skill bruikbaar is
 			if(cooldownCurrent <= 0){
 				
 				//kijkt of er een target is
@@ -84,20 +84,23 @@ public class Slap : MonoBehaviour {
 
 			//else statements voor player errors, plaatst de text en zet de timer aan van de text
 					else{
-					errorText.text = "Target Too Far Away";
-					PlayerError.change = true;
+						//player error messaging
+						errorText.text = "Target Too Far Away";
+						PlayerError.change = true;
 					}
 					
 				}
 
 				else{
-				errorText.text = "No Target";
-				PlayerError.change = true;
+					//player error messaging
+					errorText.text = "No Target";
+					PlayerError.change = true;
 				}
 
 			}
 
 			else{
+				//player error messaging
 				errorText.text = "On Cooldown";
 				PlayerError.change = true;
 			}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//dit script spawned en respawned de enemies 
 
 public class EnemySpawn : MonoBehaviour {
 

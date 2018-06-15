@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRespawn : MonoBehaviour {
+//script wat er voor zorgt dat de speler wederkeert uit de dood.
 
-	//script wat er voor zorgt dat de speler wederkeert uit de dood.
+public class PlayerRespawn : MonoBehaviour {
 
 	public GameObject Player;
 
@@ -15,9 +15,10 @@ public class PlayerRespawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//als de speler dood is, keert deze terug naar een spawnpoint en is health gereset
 		if(Player.GetComponent<PlayerStats>().health <= 0){
 			Player.GetComponent<PlayerStats>().health = Player.GetComponent<PlayerStats>().startHealth;
-			Player.SetActive(true);
 			Player.transform.position = transform.position;
 		}
 	}

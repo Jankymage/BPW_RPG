@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TargetFrame : MonoBehaviour {
+//scipt voor de target frames
 
-	//scipt voor de target frames
+public class TargetFrame : MonoBehaviour {
 
 	public Targeting Targeting;
 	public Stats Stats;
@@ -29,11 +29,6 @@ public class TargetFrame : MonoBehaviour {
 			targetName.text = Targeting.targetNew.ToString();
 			targetHealth.text = Targeting.targetNew.GetComponent<Stats>().health.ToString();
 		}
-
-		// //als de health van de target 0 is word het frame nonactief.
-		// if(Targeting.targetNew.GetComponent<Stats>().health <= 0){
-		// 	targetFrame.SetActive(false);
-		// }
 		
 		//als er geen target is word het frame nonactief
 		if(!Targeting.targeted){

@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//quest voor de kill quest, moet non actief op de player geplaats worden
+
 public class QuestKill : MonoBehaviour {
 
-	//als quest accepted: deze quest actief maken
-		//instantiate tracker
-	//als object opgepakt > update tracker
-	//als alles gepakt > quest complete	
-	
-	//TODO:
-	//quest inleveren.
-
 	//voor het tellen van de objecten.
-	public int count = 0;
+	private int count = 0;
 	public int countMax = 10;
 	public Text questText;
 	private Text questTextUpdate;
@@ -33,8 +27,6 @@ public class QuestKill : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		count  = 0;
 		
 		//maakt een text aan om de status van de quest bij te houden en zet deze op 0
 		questTextUpdate = Instantiate(questText, canvas.transform);
@@ -68,8 +60,6 @@ public class QuestKill : MonoBehaviour {
 			completeSound.Play();
 
 		}
-
-		
 		 
 	}
 

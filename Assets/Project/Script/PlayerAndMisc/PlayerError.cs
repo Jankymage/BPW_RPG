@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//script om de speler errors te geven, want wie wil dat nou niet!
+
 public class PlayerError : MonoBehaviour {
 
-	//script voor player error text element
-
-	//leegmaken text object na enige tijd dat er een error weergegeven word.
-	//zodat deze niet tot in de eeuwigheid blijft staan.
-
-	//voor basic timer
+		//voor basic timer
 	public bool change = false; //voor externe scripts
 	private float timer;
 	public int timeShown;
 
+	//geeft de text weer
 	public Text errorText;
 
 	//voor geluid
 	public AudioSource errorSound;
-
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +31,7 @@ public class PlayerError : MonoBehaviour {
 			timer = timeShown;
 			change = false;
 
+			//speelt een error geluid af als dat niet al gebeurt
 			if(!errorSound.isPlaying){
 				errorSound.Play();
 			}

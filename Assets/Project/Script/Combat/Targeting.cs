@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Targeting : MonoBehaviour {
-
 //script voor clickable targeting
+
+public class Targeting : MonoBehaviour {
 
 	//voor visuele weergave target
 	public GameObject targetIndicate;
@@ -21,11 +21,6 @@ public class Targeting : MonoBehaviour {
 	public bool targeted = false; //public voor andere scripts (skills)
 	private float targetedDistance;
 	public float targetedDistanceMax = 25;
-
-	// Use this for initialization
-	void Start () {
-		//TargetReset();
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,10 +34,7 @@ public class Targeting : MonoBehaviour {
 			//als de afstand te groot is word alle target informat gereset en de targetIndicate gedeactiveerd.
 			if(targetedDistance > targetedDistanceMax){
 				TargetReset();
-
 			}
-
-			
 
 		}
 
@@ -54,13 +46,15 @@ public class Targeting : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hitInfo;
 			
+			//kijkt of er iets geraakt word
 			if (Physics.Raycast(ray, out hitInfo))
 			{
 
+				//kijkt of wat er geraakt is een target is
 				if (hitInfo.collider.gameObject.tag == "Target")
 				{
-
-				targetNew = hitInfo.collider.gameObject;
+					//maakt een variable van de target
+					targetNew = hitInfo.collider.gameObject;
 
 					//als er een nieuwe target is
 					if(targetOld != targetNew){
@@ -69,21 +63,20 @@ public class Targeting : MonoBehaviour {
 						//bekijkt afstand tussen target en speler
 						distance = Vector3.Distance(targetNew.transform.position, transform.position);
 
+						//vergelijkt de afstand met de maximale afstand
 						if(distance < maxDistance){
 
-						//plaatst de targetIndicator boven de target en parent die.
-						targetIndicate.transform.position = new Vector3(targetNew.transform.position.x, targetNew.transform.position.y + 3, targetNew.transform.position.z);
-						targetIndicate.transform.SetParent(targetNew.transform);
-						
-						//zet de targetIndicate op actief
-						targetIndicate.SetActive(true);
+							//plaatst de targetIndicator boven de target en parent die.
+							targetIndicate.transform.position = new Vector3(targetNew.transform.position.x, targetNew.transform.position.y + 3, targetNew.transform.position.z);
+							targetIndicate.transform.SetParent(targetNew.transform);
+							
+							//zet de targetIndicate op actief
+							targetIndicate.SetActive(true);
 
-						//zorgt dat de targeted bool true is.
-						targeted = true;
+							//zorgt dat de targeted bool true is.
+							targeted = true;
 
 						}
-
-						
 
 					}
 

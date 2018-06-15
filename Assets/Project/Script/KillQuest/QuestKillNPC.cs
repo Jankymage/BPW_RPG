@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script voor de fetch quest NPC
+//checked de staat van de quest en spawned aan de hand daarvan een quest window om de quest te starten of af te sluiten
+
 public class QuestKillNPC : MonoBehaviour {
 
 	public Image quest;
 	public Image questFinished;
-	public GameObject canvas; //voor plaatsing quest popup 
-	//om cript van de quest uit te lezen (voor completion).
+
+	//voor plaatsing quest popup
+	public GameObject canvas;  
+
+	//om script van de quest uit te lezen (voor completion).
 	public QuestKill QuestKill;
 	
 	//voor berekenen afstand tussen speler en NPC
 	public Transform player;
 	public float maxDistance = 5f;
 	private float distance;
+
 	//voor kijken of er al een quest te zien of actief is.
 	private bool questView = false;
 	private GameObject character;
 	private bool questActive = false;
 	private bool questComplete = false;
-
-
-	//checken of er LMB op OBJECT gebruikt wordt
-	//afstand berekenen > zodat niet vanaf overal geklikt kan worden
-	//als quest nog niet geacepteerd is screen poppen
-
-
 
 	// Use this for initialization
 	void Start () {
@@ -39,10 +39,12 @@ public class QuestKillNPC : MonoBehaviour {
 		
 		//checked of er al een questpopup is
 		questView = GameObject.FindWithTag("QuestPopUp");
+
 		//of dat de quest al actief is
 		if (character.GetComponent<QuestKill>().enabled == true){
 			questActive = true;
 		}
+		
 		else{
 			questActive = false;
 		}
@@ -66,5 +68,4 @@ public class QuestKillNPC : MonoBehaviour {
 
 	}
 
-	
 }

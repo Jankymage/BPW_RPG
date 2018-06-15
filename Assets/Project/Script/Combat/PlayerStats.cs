@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//script voor de health stat van de speler
+
 public class PlayerStats : MonoBehaviour {
 
 	//script voor op targets met stats
@@ -34,6 +36,7 @@ public class PlayerStats : MonoBehaviour {
 			deathSound.Play();
 		}
 
+	//geeft de huidige healt van de speler weer in de UI
 	healthText.text = "Health: " + health.ToString();
 
 	}
