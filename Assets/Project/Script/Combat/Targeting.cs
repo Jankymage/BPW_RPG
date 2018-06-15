@@ -72,7 +72,7 @@ public class Targeting : MonoBehaviour {
 						if(distance < maxDistance){
 
 						//plaatst de targetIndicator boven de target en parent die.
-						targetIndicate.transform.position = new Vector3(targetNew.transform.position.x, targetNew.transform.position.y * 3, targetNew.transform.position.z);
+						targetIndicate.transform.position = new Vector3(targetNew.transform.position.x, targetNew.transform.position.y + 3, targetNew.transform.position.z);
 						targetIndicate.transform.SetParent(targetNew.transform);
 						
 						//zet de targetIndicate op actief
