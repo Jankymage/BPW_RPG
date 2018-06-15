@@ -17,6 +17,9 @@ public class PlayerError : MonoBehaviour {
 
 	public Text errorText;
 
+	//voor geluid
+	public AudioSource errorSound;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +33,11 @@ public class PlayerError : MonoBehaviour {
 		if(change){
 			timer = timeShown;
 			change = false;
+
+			if(!errorSound.isPlaying){
+				errorSound.Play();
+			}
+
 		}
 
 		if(timer > 0){

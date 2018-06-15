@@ -30,8 +30,9 @@ public class Slap : MonoBehaviour {
 	//voor het aanpassen van de stats op target
 	public Stats Stats;
 	
-	//voor de animatie
+	//voor de animatie en geluid
 	public Animation anim;
+	public AudioSource SlapSound;
 
 
 	// Use this for initialization
@@ -70,6 +71,9 @@ public class Slap : MonoBehaviour {
 						
 						//speelt de animatie
 						anim.Play("attack");
+
+						//speelt het geluid
+						SlapSound.Play();
 
 						//zorgen dat de target nonactief word als target dood gaat.
 						if(Targeting.targetNew.GetComponent<Stats>().health <= 0){

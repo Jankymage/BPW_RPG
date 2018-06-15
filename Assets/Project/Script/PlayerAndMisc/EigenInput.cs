@@ -15,7 +15,10 @@ public class EigenInput : MonoBehaviour
     public float mouseSpeed = 10f;
     //[Range(0f, 20f)]
     //public float gravMulti;
+
+    //voor animatie en geluid
     public Animation anim;
+    public AudioSource stepSound;
     
     //variables voor het bewegen en springen
     private Rigidbody rb;
@@ -66,6 +69,17 @@ public class EigenInput : MonoBehaviour
     {
 
         
+        //zorgt dat het stappen geluid speelt als de character beweegt.
+        if(moveSpeedForward != 0 | moveSpeedSide != 0){
+            if(!stepSound.isPlaying){
+                stepSound.Play();
+            }
+        }
+
+        //zorgt dat het afspelen van het stappen geluid stopt als de character stil staat
+        if (moveSpeedForward == 0f && moveSpeedSide == 0f){
+            stepSound.Stop();
+        }
         //springt als op spatie gedrukt is en er nog spring "charges" over zijn.
         // if (Input.GetButtonDown("Jump") && jumpTimes <= (jumpMax - 2))
         // {

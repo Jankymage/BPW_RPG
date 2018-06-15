@@ -27,6 +27,10 @@ public class QuestFetch : MonoBehaviour {
 	//voor herspeelbare quest
 	public bool questTextUpdateBool = false;
 
+	//voor geluid
+	public AudioSource collectSound;
+	public AudioSource completeSound;
+
 	// Use this for initialization
 	void Start () {
 
@@ -60,6 +64,9 @@ public class QuestFetch : MonoBehaviour {
 			questComplete = Instantiate(questText, canvas.transform);
 			questComplete.text = "Quest Complete!";
 
+			//speelt geluid af
+			completeSound.Play();
+
 		}
 
 		
@@ -76,6 +83,9 @@ public class QuestFetch : MonoBehaviour {
 		if(other.CompareTag("Collectable") && !questComplete){
 			count += 1;
 			other.gameObject.SetActive(false);
+
+			//speelt geluid af
+			collectSound.Play();
 			
 			SetCountText();
 		}

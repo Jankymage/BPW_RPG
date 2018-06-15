@@ -15,7 +15,9 @@ public class EnemyAI : MonoBehaviour {
 	public float slapRange = 3f;
     public float leashRange = 40f;
 
-    //voor animatie
+    //voor animatie en geluid
+    private AudioSource damageSound;
+    private GameObject audioFind;
     public Animation anim;
     
     //voor aanval
@@ -42,7 +44,12 @@ public class EnemyAI : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
 		respawnLocation = gameObject.transform.position;
         
+        //enemy start idle
         currentState = State.Idle;
+
+        //voor het opzoeken object met audiosource
+        audioFind = GameObject.Find("PlayerHurt");
+		damageSound = audioFind.GetComponent<AudioSource>();
     }
 	
 	//Update is called once per frame
@@ -123,8 +130,9 @@ public class EnemyAI : MonoBehaviour {
                     //zorgt er voor dat de damage aan de healt van de target word gedaan
                     player.GetComponent<PlayerStats>().health -= damage;
 
-                    //animatie
+                    //animatie en geluid
                     anim.Play("Attack");
+                    damageSound.Play();
                 }
 
                 else{

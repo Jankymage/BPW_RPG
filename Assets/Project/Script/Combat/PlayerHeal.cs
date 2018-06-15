@@ -15,7 +15,9 @@ public class PlayerHeal : MonoBehaviour {
 	public Text errorText;
 	public PlayerError PlayerError;
 
+	//voor de animatie en geluid
 	public Animation anim;
+	public AudioSource healSound;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +49,8 @@ public class PlayerHeal : MonoBehaviour {
 					cooldown = cooldownMax;
 					//speelt de animatie
 					anim.Play("skill");
+					//speelt sound af
+					healSound.Play();
 					
 				}
 				

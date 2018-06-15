@@ -13,7 +13,11 @@ public class PlayerStats : MonoBehaviour {
 	//voor het resetten van de health
 	public int startHealth = 100;
 
+	//voor het weergeven van de healt
 	public Text healthText;
+
+	//voor de audio
+	public AudioSource deathSound;
 
 
 	// Use this for initialization
@@ -24,9 +28,10 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		//als health 0 of lager is verdwijnt de target
+		//als player dood is speelt er een geluid (ander script reset de player)
 		if(health <= 0){
-			gameObject.SetActive(false);
+
+			deathSound.Play();
 		}
 
 	healthText.text = "Health: " + health.ToString();
