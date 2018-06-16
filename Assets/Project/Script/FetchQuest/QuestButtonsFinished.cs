@@ -44,6 +44,9 @@ public class QuestButtonsFinished : MonoBehaviour {
         //zet de quest uit.
         character.GetComponent<QuestFetch>().enabled = false;
 
+        //voor finish script
+        character.GetComponent<QuestFetch>().questFinish = true;
+
         Destroy(gameObject);
     }
 

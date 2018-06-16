@@ -42,6 +42,9 @@ public class QuestKillButtonsFinished : MonoBehaviour {
         //zet de quest uit.
         character.GetComponent<QuestKill>().enabled = false;
 
+        //voor finish script
+        character.GetComponent<QuestKill>().questFinish = true;
+
         Destroy(gameObject);
     }
 

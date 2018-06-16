@@ -62,9 +62,6 @@ public class QuestFetch : MonoBehaviour {
 			//speelt geluid af
 			completeSound.Play();
 
-			//voor finish script
-			questFinish = true;
-
 		}
 
 		

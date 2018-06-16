@@ -62,9 +62,6 @@ public class QuestKill : MonoBehaviour {
 			//speelt geluid af
 			completeSound.Play();
 
-			//voor finish script
-			questFinish = true;
-
 		}
 		 
 	}
