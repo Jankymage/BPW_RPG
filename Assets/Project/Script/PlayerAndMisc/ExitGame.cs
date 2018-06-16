@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//om het spel af te sluiten met esc zonder waarschuwing (it's not a bug, it's a feature)
+//script om het menu actief te maken waarmee je naar het startscherm gaat (en menu laat controlls zien)
 
 public class ExitGame : MonoBehaviour {
+
+	public GameObject menu;
 
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey(KeyCode.Escape)){
-			Application.Quit();
+			menu.SetActive(true);
 		}
 	}
 }
