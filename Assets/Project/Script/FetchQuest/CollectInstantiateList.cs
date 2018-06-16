@@ -48,6 +48,12 @@ public class CollectInstantiateList : MonoBehaviour {
 					timers[i] -= Time.deltaTime;
 						if(timers[i] <= 0){
 						objects[i].SetActive(true);
+
+						//veranderd de locatie van het object
+						Vector3 location = transform.position;
+						location.x += Random.Range(-locationX, locationX);
+						location.z += Random.Range(-locationZ, locationZ);
+						objects[i].transform.position = location;
 					}
 				}
 			}

@@ -53,11 +53,19 @@ public class EnemySpawn : MonoBehaviour {
 				if(timers[i] > 0){
 					timers[i] -= Time.deltaTime;
 						if(timers[i] <= 0){
-						objects[i].SetActive(true);
-						objects[i].transform.position = objects[i].GetComponent<EnemyAI>().respawnLocation;
-						//health reset
-						objects[i].GetComponent<Stats>().health = objects[i].GetComponent<Stats>().startHealth;
-					}
+
+							//veranderd de locatie van het object
+							Vector3 location = transform.position;
+							location.x += Random.Range(-locationX, locationX);
+							location.z += Random.Range(-locationZ, locationZ);
+							objects[i].GetComponent<EnemyAI>().respawnLocation = location;
+	
+							objects[i].SetActive(true);
+							objects[i].transform.position = objects[i].GetComponent<EnemyAI>().respawnLocation;
+							//health reset
+							objects[i].GetComponent<Stats>().health = objects[i].GetComponent<Stats>().startHealth;
+
+						}
 				}
 			}
 		}     
