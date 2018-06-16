@@ -9,7 +9,10 @@ using UnityEngine.SceneManagement;
 public class StartScreen : MonoBehaviour {
 
 	//variablen voor de knoppen
-	public Button m_startGame, m_quitGame;
+	public Button m_startGame, m_quitGame, m_Credits;
+
+	//voor het laten zien van de credits
+	public GameObject creditsObject;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +22,8 @@ public class StartScreen : MonoBehaviour {
 		startgame.onClick.AddListener(StartGame);
 		Button quitgame = m_quitGame.GetComponent<Button>();
 		quitgame.onClick.AddListener(QuitGame);
+		Button credits = m_Credits.GetComponent<Button>();
+		credits.onClick.AddListener(Credits);
 
 	}
 
@@ -31,4 +36,11 @@ public class StartScreen : MonoBehaviour {
 	void QuitGame(){
 		Application.Quit();
 	}
+
+	//laat de credits zien
+	void Credits(){
+		Debug.Log("credits");
+		creditsObject.SetActive(true);
+	}
+
 }

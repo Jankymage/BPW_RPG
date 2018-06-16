@@ -16,6 +16,9 @@ public class EnemyAI : MonoBehaviour {
 	public float slapRange = 3f;
     public float leashRange = 40f;
 
+    //voor name
+    public string enemyName;
+
     //voor animatie en geluid
     private AudioSource damageSound;
     private GameObject audioFind;
@@ -45,6 +48,9 @@ public class EnemyAI : MonoBehaviour {
         //voor het opzoeken object met audiosource
         audioFind = GameObject.Find("PlayerHurt");
 		damageSound = audioFind.GetComponent<AudioSource>();
+
+        //om object naam te geven voor targeting
+        gameObject.name = enemyName;
     }
 	
 	//Update is called once per frame

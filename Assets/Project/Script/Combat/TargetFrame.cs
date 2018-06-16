@@ -27,7 +27,7 @@ public class TargetFrame : MonoBehaviour {
 		if(Targeting.targeted){
 			targetFrame.SetActive(true);
 			targetName.text = Targeting.targetNew.ToString();
-			targetHealth.text = Targeting.targetNew.GetComponent<Stats>().health.ToString();
+			targetHealth.text = "Health: " + Targeting.targetNew.GetComponent<Stats>().health.ToString();
 		}
 		
 		//als er geen target is word het frame nonactief

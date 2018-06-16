@@ -295,7 +295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   startHealth: 100
-  deathSound: {fileID: 0}
 --- !u!114 &114640435374103988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +310,7 @@ MonoBehaviour:
   aggroRange: 15
   slapRange: 3
   leashRange: 40
+  enemyName: Mushroom
   anim: {fileID: 111851750868799304}
   maxCooldown: 1
   damage: 10

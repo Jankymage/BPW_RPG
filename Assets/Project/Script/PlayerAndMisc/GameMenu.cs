@@ -17,10 +17,10 @@ public class GameMenu : MonoBehaviour {
 	void Start () {
 		
 		//voor het initalizeren van de buttons
-        Button accept = m_Close.GetComponent<Button>();
-        Button cancel = m_Start.GetComponent<Button>();
-        accept.onClick.AddListener(CloseMenu);
-        cancel.onClick.AddListener(ReturnStart);
+        Button close = m_Close.GetComponent<Button>();
+        Button start = m_Start.GetComponent<Button>();
+        close.onClick.AddListener(CloseMenu);
+        start.onClick.AddListener(ReturnStart);
 
 	}
 	
