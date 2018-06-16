@@ -25,6 +25,9 @@ public class QuestKill : MonoBehaviour {
 	public AudioSource collectSound;
 	public AudioSource completeSound;
 
+	//voor afspelen eind animatie
+	public bool questFinish = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -58,6 +61,9 @@ public class QuestKill : MonoBehaviour {
 
 			//speelt geluid af
 			completeSound.Play();
+
+			//voor finish script
+			questFinish = true;
 
 		}
 		 
