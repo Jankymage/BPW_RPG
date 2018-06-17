@@ -78,9 +78,16 @@ public class EnemyAI : MonoBehaviour {
                     currentState = State.Move;
                 }
 
-                //animatie
-                anim.Play("Idle");
-                
+                //animatie, afhankelijk van of enemy terug aan het keren is of stil staat op locatie
+                //laat y weg, omdat de hoogte bijna nooit klopt ivm hoogteverschil terein.
+                if(transform.position.z != respawnLocation.z && transform.position.x != respawnLocation.x){
+                    anim.Play("Run");
+                }
+
+                else{
+                    anim.Play("Idle");
+                }
+
                 break;
 
             case State.Move:

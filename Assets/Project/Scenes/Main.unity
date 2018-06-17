@@ -7154,7 +7154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3eb1aba3b94be4f9f67d6ed567c6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 3
+  amount: 4
   enemy: {fileID: 1605430990960978, guid: 505c595308923144e8483ecc2334292f, type: 2}
   locationX: 15
   locationZ: 15
@@ -8910,7 +8910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3eb1aba3b94be4f9f67d6ed567c6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 3
+  amount: 4
   enemy: {fileID: 1605430990960978, guid: 505c595308923144e8483ecc2334292f, type: 2}
   locationX: 15
   locationZ: 15
