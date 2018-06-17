@@ -2999,6 +2999,7 @@ GameObject:
   - component: {fileID: 554393840}
   - component: {fileID: 554393839}
   - component: {fileID: 554393838}
+  - component: {fileID: 554393841}
   m_Layer: 0
   m_Name: FinishCamera
   m_TagString: Untagged
@@ -3069,6 +3070,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &554393841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 554393836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2684d77612b6bdc4baa5212351dfd9d5, type: 2}
 --- !u!1001 &561500219
 Prefab:
   m_ObjectHideFlags: 0
@@ -4025,6 +4038,7 @@ GameObject:
   - component: {fileID: 764763903}
   - component: {fileID: 764763902}
   - component: {fileID: 764763901}
+  - component: {fileID: 764763905}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4095,6 +4109,18 @@ Transform:
   m_Father: {fileID: 1648086783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764763905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764763900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2684d77612b6bdc4baa5212351dfd9d5, type: 2}
 --- !u!4 &772656003 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4109027472145070, guid: 4dcb45769932d8b449fc6523626179be,
