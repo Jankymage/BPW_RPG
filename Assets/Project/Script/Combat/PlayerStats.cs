@@ -36,8 +36,13 @@ public class PlayerStats : MonoBehaviour {
 			deathSound.Play();
 		}
 
-	//geeft de huidige healt van de speler weer in de UI
-	healthText.text = "Health: " + health.ToString();
+		//geeft de huidige health van de speler weer in de UI
+		healthText.text = "Health: " + health.ToString();
+
+		//zorgt er voor dat het health van de player niet boven start (max) health komt
+		if(health > startHealth){
+			health = startHealth;
+		}
 
 	}
 }
